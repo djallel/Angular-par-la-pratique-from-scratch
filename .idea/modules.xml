@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/Angular-par-la-pratique-from-scratch.iml" filepath="$PROJECT_DIR$/.idea/Angular-par-la-pratique-from-scratch.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/restaurangular.iml" filepath="$PROJECT_DIR$/.idea/restaurangular.iml" />
     </modules>
   </component>
 </project>
