@@ -24,6 +24,7 @@ import { DishTableComponent } from './dish-table/dish-table.component';
 import { MatTableModule } from '@angular/material/table';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatSortModule } from '@angular/material/sort';
+import {QuickLunchService} from './services/quick-lunch.service';
 
 
 const routes: Routes = [
@@ -64,7 +65,7 @@ const routes: Routes = [
     MatPaginatorModule,
     MatSortModule
   ],
-  providers: [],
+  providers: [QuickLunchService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
