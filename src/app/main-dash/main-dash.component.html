@@ -18,24 +18,31 @@
         <mat-card-content class="dashboard-card-content" *ngIf="card.id === 'brg'">
           <div>Contenu propre aux burger</div>
           <p *ngFor="let burger of burgers">
-          <span>{{burger.title}}</span> :
-            <mat-divider></mat-divider>
-          <span>{{burger.description}}</span>
-            <mat-divider></mat-divider>
+            <span>{{burger.title}}</span> :
+            <span>{{burger.description}}</span>
             <span class="price">{{burger.price | currency:'EUR':'symbol':'1.2-2'}}</span>
+            <mat-divider></mat-divider>
           </p>
         </mat-card-content>
         <mat-card-content class="dashboard-card-content" *ngIf="card.id === 'glt'">
           <div>Contenu propre aux galettes</div>
+          <p *ngFor="let galette of galettes">
+            <span>{{galette.title}}</span> :
+            <span>{{galette.description}}</span>
+            <span class="price">{{galette.price | currency:'EUR':'symbol':'1.2-2'}}</span>
+            <mat-divider></mat-divider>
+          </p>
         </mat-card-content>
         <mat-card-content class="dashboard-card-content" *ngIf="card.id === 'pzz'">
           <div>Contenu propre aux pizza</div>
+          <p *ngFor="let pizza of pizzas">
+            <span>{{pizza.title}}</span> :
+            <span>{{pizza.description}}</span>
+            <span class="price">{{pizza.price | currency:'EUR':'symbol':'1.2-2'}}</span>
+            <mat-divider></mat-divider>
+          </p>
         </mat-card-content>
       </mat-card>
     </mat-grid-tile>
   </mat-grid-list>
-</div>
-
-<div *ngFor="let burger of burgers ">
-  {{burger.title}}
 </div>

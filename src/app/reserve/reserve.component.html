@@ -1,1 +1,11 @@
-<p>reserve works!</p>
+<form [formGroup]="reservationForm">
+<input type="date" formControlName="date">
+  <select formControlName="time">
+    <option *ngFor="let to of timeOptions">{{ to }}</option>
+  </select>
+  <select formControlName="people">
+    <option *ngFor="let po of peopleOptions">{{ po }}</option>
+  </select>
+</form>
+
+{{reservationForm.value | json }}

@@ -26,6 +26,7 @@ import {MatPaginatorModule} from '@angular/material/paginator';
 import {MatSortModule} from '@angular/material/sort';
 import {QuickLunchService} from './services/quick-lunch.service';
 import {MatDividerModule} from '@angular/material/divider';
+import {ReactiveFormsModule} from '@angular/forms';
 
 
 const routes: Routes = [
@@ -65,7 +66,8 @@ const routes: Routes = [
     MatTableModule,
     MatPaginatorModule,
     MatSortModule,
-    MatDividerModule
+    MatDividerModule,
+    ReactiveFormsModule
   ],
   providers: [QuickLunchService],
   bootstrap: [AppComponent]
