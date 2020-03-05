@@ -30,7 +30,7 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {MatDatepickerModule} from '@angular/material/datepicker';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material/input';
-import {MatNativeDateModule} from '@angular/material/core';
+import {MAT_DATE_LOCALE, MatNativeDateModule} from '@angular/material/core';
 
 
 const routes: Routes = [
@@ -78,7 +78,7 @@ const routes: Routes = [
     FormsModule,
     MatNativeDateModule
   ],
-  providers: [QuickLunchService],
+  providers: [{provide: MAT_DATE_LOCALE, useValue: 'fr-FR'}, QuickLunchService], //{provide: MAT_DATE_LOCALE, useValue: 'fr-FR'}, affiche les date en francais, ( de la library material )
   bootstrap: [AppComponent]
 })
 export class AppModule {
