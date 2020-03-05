@@ -32,13 +32,14 @@ import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material/input';
 import {MAT_DATE_LOCALE, MatNativeDateModule} from '@angular/material/core';
 import {MatSelectModule} from '@angular/material/select';
+import {ScheduleComponent} from './schedule/schedule.component';
 
 
 const routes: Routes = [
   {path: '', component: HomeComponent},
   {path: 'carte', component: CarteComponent},
   {path: 'reserve', component: ReserveComponent},
-  //{ path: "schedule", component: ScheduleComponent },
+  {path: 'schedule', component: ScheduleComponent},
   {path: 'contact', component: ContactComponent}
 ];
 
@@ -52,7 +53,8 @@ const routes: Routes = [
     ReserveComponent,
     ContactComponent,
     MainDashComponent,
-    DishTableComponent
+    DishTableComponent,
+    ScheduleComponent
   ],
   imports: [
     BrowserModule,
