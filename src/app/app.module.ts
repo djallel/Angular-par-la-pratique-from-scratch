@@ -26,7 +26,11 @@ import {MatPaginatorModule} from '@angular/material/paginator';
 import {MatSortModule} from '@angular/material/sort';
 import {QuickLunchService} from './services/quick-lunch.service';
 import {MatDividerModule} from '@angular/material/divider';
-import {ReactiveFormsModule} from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import {MatDatepickerModule} from '@angular/material/datepicker';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import {MatInputModule} from '@angular/material/input';
+import {MatNativeDateModule} from '@angular/material/core';
 
 
 const routes: Routes = [
@@ -67,7 +71,12 @@ const routes: Routes = [
     MatPaginatorModule,
     MatSortModule,
     MatDividerModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    MatDatepickerModule,
+    MatFormFieldModule,
+    MatInputModule,
+    FormsModule,
+    MatNativeDateModule
   ],
   providers: [QuickLunchService],
   bootstrap: [AppComponent]

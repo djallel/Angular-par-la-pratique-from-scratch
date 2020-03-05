@@ -37,7 +37,7 @@ export class ReserveComponent implements OnInit {
   }
 
   createForm(): any {
-    this.reservationForm = this.fb.group({
+    this.reservationForm = this.fb.group({ // on a crée et peupler à l'aide de notre group de fb ( fb c'est FormBuilder qui est dans le constructor)
       date: new Date(),
       time: '',
       people: 1

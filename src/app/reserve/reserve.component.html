@@ -1,11 +1,11 @@
-<form [formGroup]="reservationForm">
-<input type="date" formControlName="date">
-  <select formControlName="time">
-    <option *ngFor="let to of timeOptions">{{ to }}</option>
-  </select>
-  <select formControlName="people">
-    <option *ngFor="let po of peopleOptions">{{ po }}</option>
-  </select>
+<form [formGroup]="reservationForm" (submit)="saveReservation()" class="example-container"> <!--Angular associe à ce formulaire reservationForm un formGroup-->
+<mat-form-field>
+    <mat-label>Choose a date</mat-label>
+    <input matInput [matDatepicker]="picker" placeholder="choisir une date" formControlName="date" required> <!-- formControlName vient de ReactiveFormsModule-->
+    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+    <mat-datepicker #picker startView="year" [startAt]="date"></mat-datepicker>
+  </mat-form-field>
 </form>
 
-{{reservationForm.value | json }}
+
+
