@@ -33,6 +33,7 @@ import {MatInputModule} from '@angular/material/input';
 import {MAT_DATE_LOCALE, MatNativeDateModule} from '@angular/material/core';
 import {MatSelectModule} from '@angular/material/select';
 import {ScheduleComponent} from './schedule/schedule.component';
+import {HttpClient, HttpClientModule} from '@angular/common/http';
 
 
 const routes: Routes = [
@@ -80,7 +81,8 @@ const routes: Routes = [
     MatInputModule,
     FormsModule,
     MatNativeDateModule,
-    MatSelectModule
+    MatSelectModule,
+    HttpClientModule
   ],
   providers: [{provide: MAT_DATE_LOCALE, useValue: 'fr-FR'}, QuickLunchService], //{provide: MAT_DATE_LOCALE, useValue: 'fr-FR'}, affiche les date en francais, ( de la library material )
   bootstrap: [AppComponent]

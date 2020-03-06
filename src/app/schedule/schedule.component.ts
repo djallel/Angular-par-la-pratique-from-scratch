@@ -2,7 +2,8 @@ import {Component, OnDestroy, OnInit} from '@angular/core';
 import {FormControl} from '@angular/forms';
 import {Observable, Subscription} from 'rxjs';
 import {EveningEvent} from '../models/evening-event.interface';
-import {debounceTime, map, switchMap, take} from 'rxjs/operators';
+import {debounceTime, map, switchMap, take, tap} from 'rxjs/operators';
+import {ScheduleService} from '../services/schedule.service';
 
 @Component({
   selector: 'app-schedule',
@@ -12,10 +13,10 @@ import {debounceTime, map, switchMap, take} from 'rxjs/operators';
 export class ScheduleComponent implements OnInit, OnDestroy {
   searchTerm = new FormControl();
   searchTerms$: Observable<string> = this.searchTerm.valueChanges; // $ veut dire c'est un obsevabe, c'est observable de string, car on va recevoir des string
-  result: EveningEvent[] = [];
+  result = null;
   searchSubscription: Subscription;
 
-  constructor() {
+  constructor(private scheduleService: ScheduleService) {
   }
 
   ngOnInit() {
@@ -23,9 +24,9 @@ export class ScheduleComponent implements OnInit, OnDestroy {
     this.searchTerms$
       .pipe(
         debounceTime(1000),
-        map(x=> x.toUpperCase())
+        switchMap(word => this.scheduleService.search(word))
       )
-      .subscribe(data => console.log(data), err => console.error(err));
+      .subscribe(data => this.result = data);
   }
 
   ngOnDestroy(): void {
