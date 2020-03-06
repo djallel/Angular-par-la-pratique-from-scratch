@@ -34,6 +34,7 @@ import {MAT_DATE_LOCALE, MatNativeDateModule} from '@angular/material/core';
 import {MatSelectModule} from '@angular/material/select';
 import {ScheduleComponent} from './schedule/schedule.component';
 import {HttpClient, HttpClientModule} from '@angular/common/http';
+import { PhoneComponent } from './phone/phone.component';
 
 
 const routes: Routes = [
@@ -55,7 +56,8 @@ const routes: Routes = [
     ContactComponent,
     MainDashComponent,
     DishTableComponent,
-    ScheduleComponent
+    ScheduleComponent,
+    PhoneComponent
   ],
   imports: [
     BrowserModule,
