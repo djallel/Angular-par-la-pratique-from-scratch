@@ -13,7 +13,7 @@ import {ScheduleService} from '../services/schedule.service';
 export class ScheduleComponent implements OnInit, OnDestroy {
   searchTerm = new FormControl();
   searchTerms$: Observable<string> = this.searchTerm.valueChanges; // $ veut dire c'est un obsevabe, c'est observable de string, car on va recevoir des string
-  result = null;
+  result: EveningEvent[] = [];
   searchSubscription: Subscription;
 
   constructor(private scheduleService: ScheduleService) {
@@ -21,18 +21,30 @@ export class ScheduleComponent implements OnInit, OnDestroy {
 
   ngOnInit() {
 
-    this.searchTerms$
+    this.getAllEvents();
+
+    this.searchSubscription = this.searchTerms$
       .pipe(
         debounceTime(1000),
-        switchMap(word => this.scheduleService.search(word))
+        switchMap(term => this.scheduleService.search(term))
       )
-      .subscribe(data => this.result = data);
+      .subscribe(data => (this.result = data), err => console.error(err));
   }
 
   ngOnDestroy(): void {
     this.searchSubscription.unsubscribe();
   }
 
+  getAllEvents() {
+    this.scheduleService
+      .getAllEvents()
+      .pipe(take(1))
+      .subscribe(
+        data => (this.result = data),
+        err => console.error(err),
+        () => console.log('done')
+      );
+  }
 
 }
 
